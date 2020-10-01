@@ -1,0 +1,290 @@
+.home-page {
+    width: 100%;
+    box-shadow: 0px 0px 55px rgba(0, 0, 0, 0.2);
+}
+
+/* NAVIGATION */
+
+.navigation{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    padding: 3rem 4rem;
+}
+
+.menu-icon {
+    position: absolute;    
+    display: none;
+}
+
+.menu-icon img {
+    content: url("../assets/icon-hamburger.svg");
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.logo img{
+    max-width: 100%;
+}
+
+/* NAVIGATION MENU */
+
+
+.mobile-menu-wrapper {
+    position: fixed;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.mobile-menu {
+    background-color: var(--White);
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%;   
+    padding: 3rem 4rem;
+    z-index: 2; 
+}
+
+.mobile-menu img {
+    content: url("../assets/icon-close.svg");
+}
+
+.mobile-menu ul {
+    display: flex;
+}
+
+.mobile-menu ul li {
+    padding: 0 1rem;
+}
+
+.mobile-menu ul li a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--Black);
+}
+
+.menu ul{
+    display: flex;
+}
+
+.menu ul li {
+    padding: 1rem;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: var(--White);
+    position: relative;
+}
+
+.menu ul li a:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: var(--White);
+    position: absolute;
+    top: calc(100% + .5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width .2s linear;
+}
+
+.menu ul li a:hover:after {
+    width: 50%;
+}
+
+/* SECTIONS */
+
+.top-section, .bottom-section {
+    display: flex;
+}
+
+.top-section .main-img {
+    width: 58.3%;    
+}
+
+.top-section .main-img img{
+/*     content: url("../assets/desktop-image-hero-1.jpg");
+ */    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.top-section .resume{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.top-section .resume .resume-content {
+    max-width: 415px;
+    width: 100%;
+}
+
+.resume-content h2 {
+    font-size: 2.7rem;
+    font-weight: 700;
+    color: var(--Black);
+    margin-bottom: 2rem;
+}
+
+.text {
+    color: var(--Dark-Gray);
+    font-size: 1rem;
+    line-height: 20px;
+    margin-bottom: 2rem;
+}
+
+.resume-content button {
+    border: none;
+    background-color: transparent;
+    letter-spacing: 10px;
+    font-weight: 500;
+}
+
+.resume-content button img {
+    margin-left: 1rem;
+}
+.resume-content button:hover {
+    opacity: .5;
+}
+
+.top-section .resume .slider-actions {
+    position: absolute;
+    display: flex;
+    width: 27%;
+    bottom: 0;
+    left: 0;
+}
+
+.top-section .resume .slider-actions button {
+    background-color: var(--Black);
+    width: 100%;
+    height: 80px;
+}
+
+.top-section .resume .slider-actions button:hover {
+    opacity: .7;
+}
+
+
+/* SECTIONS BOTTOM SECTION */
+
+.bottom-section img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.bottom-section .about-img-1 {
+    width: 29.2%;
+}
+
+.bottom-section .about-img-2 {
+    width: 30.4%;
+}
+
+.bottom-section .about-img-1 img{
+    content: url("../assets/image-about-dark.jpg");
+}
+
+.bottom-section .about-img-2 img{
+    content: url("../assets/image-about-light.jpg");
+}
+
+
+.bottom-section .about{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-section .about .about-content {    
+    max-width: 420px;
+    width: 100%;
+}
+
+.bottom-section .about .about-content .text {
+    margin: 0;
+}
+
+.bottom-section .about h3 {
+    font-size: 1rem;
+    letter-spacing: 5px;
+    margin-bottom: 1rem;
+}
+
+.show {
+    display: block;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1025px){
+
+    .logo {
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .top-section, .bottom-section {
+        flex-direction: column;
+    }
+
+    .resume-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .top-section .main-img img{
+        content: url("../assets/mobile-image-hero-1.jpg");
+    }
+
+    .bottom-section .about-img-1,
+    .bottom-section .about-img-2,
+    .top-section .main-img {
+        width: 100%;
+    }
+
+    .top-section .resume .slider-actions {
+        bottom: 100%;
+        left: auto;
+        right: 0;
+    }
+    
+    .top-section .resume .slider-actions button {
+        height: 60px;
+    }
+
+    .top-section .resume .resume-content, .bottom-section .about .about-content{
+        padding: 4rem 2rem;
+    }
+    
+}
