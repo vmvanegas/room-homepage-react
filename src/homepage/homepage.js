@@ -33,6 +33,11 @@ const Homepage = () => {
     const [slideNumber, setSlideNumber] = useState(0);
 
     useEffect(() => {
+
+
+        let sliders = document.querySelectorAll(".top-section")
+        sliders[slideNumber].classList.add("current-slide")
+
         console.log(data[slideNumber].text)
         const menuWrapper = document.querySelector(".mobile-menu-wrapper")
         menuWrapper.addEventListener("click", (e) => {
@@ -50,14 +55,20 @@ const Homepage = () => {
 
 
     const nextSlide = (n) => {
+        let slides = document.querySelectorAll(".top-section")
         let nextNumber = slideNumber + n
-        if (nextNumber > data.length - 1) {
+
+        if (nextNumber > slides.length - 1) {
             setSlideNumber(0)
+            nextNumber = 0
         } else if (nextNumber < 0) {
-            setSlideNumber(data.length - 1)
+            setSlideNumber(slides.length - 1)
+            nextNumber = slides.length - 1
         } else {
             setSlideNumber(nextNumber)
-        }
+        }        
+        slides[slideNumber].classList.remove("current-slide")
+        slides[nextNumber].classList.add("current-slide")
     }
 
     return (
@@ -89,21 +100,27 @@ const Homepage = () => {
                     </div>
                 </div>
             </nav>
-            <div className="top-section">
-                <div className="main-img">
-                    <img style={{content: 'url("'+data[slideNumber].image+'")'}} alt="" />
+            <div className="slide-wrapper">
+            {
+                data.map((item, index)=>(
+                    <div className="top-section" key={index}>
+                    <div className="main-img">
+                        <img style={{content: 'url("'+item.image+'")'}} alt="" />
+                    </div>
+                    <section className="resume">
+                        <div className="resume-content">
+                            <h2>{item.title}</h2>
+                            <p className="text">{item.text}</p>
+                            <button>SHOP NOW <img src={arrow} alt="" /></button>
+                        </div>
+                        <div className="slider-actions">
+                            <button onClick={() => { nextSlide(-1) }}><img src={leftArrow} alt="" /></button>
+                            <button onClick={() => { nextSlide(1) }}><img src={rightArrow} alt="" /></button>
+                        </div>
+                    </section>
                 </div>
-                <section className="resume">
-                    <div className="resume-content">
-                        <h2>{data[slideNumber].title}</h2>
-                        <p className="text">{data[slideNumber].text}</p>
-                        <button>SHOP NOW <img src={arrow} alt="" /></button>
-                    </div>
-                    <div className="slider-actions">
-                        <button onClick={() => { nextSlide(-1) }}><img src={leftArrow} alt="" /></button>
-                        <button onClick={() => { nextSlide(1) }}><img src={rightArrow} alt="" /></button>
-                    </div>
-                </section>
+                ))
+            }
             </div>
             <div className="bottom-section">
                 <div className="about-img-1">
