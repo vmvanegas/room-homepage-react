@@ -3,112 +3,6 @@
     box-shadow: 0px 0px 55px rgba(0, 0, 0, 0.2);
 }
 
-/* NAVIGATION */
-
-.navigation{
-    position: absolute;
-    width: 100%;
-    display: flex;
-    padding: 3rem 4rem;
-    z-index: 1;
-}
-
-.menu-icon {
-    position: absolute;    
-    display: none;
-}
-
-.menu-icon img {
-    content: url("../assets/icon-hamburger.svg");
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    margin-right: 2rem;
-}
-
-.logo img{
-    max-width: 100%;
-}
-
-/* NAVIGATION MENU */
-
-
-.mobile-menu-wrapper {
-    position: fixed;
-    display: none;
-    background-color: rgba(0, 0, 0, 0.3);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.mobile-menu {
-    background-color: var(--White);
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    top: 0;
-    left: 0;
-    width: 100%;   
-    padding: 3rem 4rem;
-    z-index: 2; 
-}
-
-.mobile-menu img {
-    content: url("../assets/icon-close.svg");
-}
-
-.mobile-menu ul {
-    display: flex;
-}
-
-.mobile-menu ul li {
-    display: flex;
-    align-items: center;
-    padding: 0 .8rem;
-}
-
-.mobile-menu ul li a {
-    text-decoration: none;
-    font-weight: 600;
-    color: var(--Black);
-}
-
-.menu ul{
-    display: flex;
-}
-
-.menu ul li {
-    padding: 1rem;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: var(--White);
-    position: relative;
-}
-
-.menu ul li a:after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: var(--White);
-    position: absolute;
-    top: calc(100% + .5rem);
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width .2s linear;
-}
-
-.menu ul li a:hover:after {
-    width: 50%;
-}
-
 /* SECTIONS */
 
 .top-section, .bottom-section {
@@ -216,11 +110,11 @@
 }
 
 .bottom-section .about-img-1 img{
-    content: url("../assets/image-about-dark.jpg");
+    content: url("../../assets/image-about-dark.jpg");
 }
 
 .bottom-section .about-img-2 img{
-    content: url("../assets/image-about-light.jpg");
+    content: url("../../assets/image-about-light.jpg");
 }
 
 
@@ -281,7 +175,7 @@
     }
 
     .top-section .main-img img{
-        content: url("../assets/mobile-image-hero-1.jpg");
+        content: url("../../assets/mobile-image-hero-1.jpg");
     }
 
     .bottom-section .about-img-1,

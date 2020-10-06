@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 /* IMAGES */
-import logo from '../assets/logo.svg'
-import arrow from '../assets/icon-arrow.svg'
-import leftArrow from '../assets/icon-angle-left.svg'
-import rightArrow from '../assets/icon-angle-right.svg'
-import imageHero1 from '../assets/desktop-image-hero-1.jpg'
-import imageHero2 from '../assets/desktop-image-hero-2.jpg'
-import imageHero3 from '../assets/desktop-image-hero-3.jpg'
+import arrow from '../../assets/icon-arrow.svg'
+import leftArrow from '../../assets/icon-angle-left.svg'
+import rightArrow from '../../assets/icon-angle-right.svg'
+import imageHero1 from '../../assets/desktop-image-hero-1.jpg'
+import imageHero2 from '../../assets/desktop-image-hero-2.jpg'
+import imageHero3 from '../../assets/desktop-image-hero-3.jpg'
+import Navigation from '../navigation/navigation'
 import './style.css';
 
 const Homepage = () => {
@@ -34,25 +34,10 @@ const Homepage = () => {
 
     useEffect(() => {
 
-
         let sliders = document.querySelectorAll(".top-section")
         sliders[slideNumber].classList.add("current-slide")
 
-        console.log(data[slideNumber].text)
-        const menuWrapper = document.querySelector(".mobile-menu-wrapper")
-        menuWrapper.addEventListener("click", (e) => {
-            if (e.target.matches('.mobile-menu-wrapper')) {
-                toggleMenuMobile()
-            }
-        })
     }, []);
-
-
-    const toggleMenuMobile = () => {
-        const mobileMenu = document.querySelector(".mobile-menu-wrapper")
-        mobileMenu.classList.toggle("show")
-    }
-
 
     const nextSlide = (n) => {
         let slides = document.querySelectorAll(".top-section")
@@ -73,33 +58,7 @@ const Homepage = () => {
 
     return (
         <div className="home-page">
-            <nav className="navigation">
-                <div className="menu-icon">
-                    <img alt="" onClick={() => { toggleMenuMobile() }} />
-                </div>
-                <div className="logo">
-                    <img src={logo} alt="" />
-                </div>
-                <div className="menu">
-                    <ul>
-                        <li><a href="/">home</a></li>
-                        <li><a href="/">shop</a></li>
-                        <li><a href="/">about</a></li>
-                        <li><a href="/">contact</a></li>
-                    </ul>
-                </div>
-                <div className="mobile-menu-wrapper">
-                    <div className="mobile-menu">
-                        <img alt="" onClick={() => { toggleMenuMobile() }} />
-                        <ul>
-                            <li><a href="/">home</a></li>
-                            <li><a href="/">shop</a></li>
-                            <li><a href="/">about</a></li>
-                            <li><a href="/">contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <Navigation />
             <div className="slide-wrapper">
             {
                 data.map((item, index)=>(
